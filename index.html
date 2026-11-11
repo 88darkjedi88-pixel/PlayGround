@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#071326" />
+  <title>Sonic: Neon Rush</title>
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell" id="gameShell">
+    <canvas id="game" aria-label="Sonic Neon Rush endless runner game"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Sonic Neon Rush home" id="brandHome">
+        <span class="brand-icon">S</span><span class="brand-copy"><b>SONIC</b><small>NEON RUSH</small></span>
+      </a>
+      <div class="top-right">
+        <div class="best-pill"><span class="crown">✦</span><span>BEST <b id="bestScore">000000</b></span></div>
+        <button class="icon-button" id="soundButton" aria-label="Toggle sound" title="Toggle sound"><span id="soundIcon">♫</span></button>
+        <button class="icon-button pause-button" id="pauseButton" aria-label="Pause game" title="Pause">Ⅱ</button>
+      </div>
+    </header>
+
+    <section class="game-hud" id="gameHud" aria-live="polite">
+      <div class="score-block"><span class="hud-label">SCORE</span><strong id="score">000000</strong></div>
+      <div class="ring-counter"><span class="ring-icon">◎</span><strong id="rings">0</strong><span class="hud-label">RINGS</span></div>
+      <div class="distance-block"><span class="hud-label">DISTANCE</span><strong><span id="distance">0</span><small>m</small></strong></div>
+    </section>
+
+    <section class="screen-card intro-card" id="introCard">
+      <div class="eyebrow"><span class="eyebrow-line"></span> GREEN HILL EXPRESS <span class="eyebrow-line"></span></div>
+      <h1>GOTTA GO<br><em>FAST!</em></h1>
+      <p class="intro-copy">Dash through the neon rails.<br>Grab rings. Dodge everything.</p>
+      <button class="primary-button" id="playButton"><span>START RUN</span><b>→</b></button>
+      <div class="control-hint"><span>←</span><span>→</span> SWITCH LANES <i>•</i> <span>↑</span> JUMP <i>•</i> <span>↓</span> SLIDE</div>
+      <div class="sonic-stamp"><span>✦</span> BLUE BLUR<br><b>EST. 1991</b></div>
+    </section>
+
+    <section class="screen-card pause-card hidden" id="pauseCard">
+      <div class="eyebrow"><span class="eyebrow-line"></span> TAKE A BREATHER <span class="eyebrow-line"></span></div>
+      <h2>PAUSED</h2>
+      <button class="primary-button" id="resumeButton"><span>KEEP RUNNING</span><b>→</b></button>
+      <button class="text-button" id="pauseRestart">RESTART RUN</button>
+    </section>
+
+    <section class="screen-card end-card hidden" id="endCard">
+      <div class="eyebrow"><span class="eyebrow-line"></span> WIPEOUT! <span class="eyebrow-line"></span></div>
+      <h2>RUN<br><em>OVER</em></h2>
+      <div class="run-results"><div><small>YOUR SCORE</small><b id="finalScore">0</b></div><div><small>RINGS</small><b id="finalRings">0</b></div></div>
+      <button class="primary-button" id="retryButton"><span>RUN IT BACK</span><b>↻</b></button>
+      <div class="best-note" id="bestNote">A new personal best!</div>
+    </section>
+
+    <div class="toast hidden" id="toast">NICE!</div>
+    <div class="speed-lines" id="speedLines" aria-hidden="true"></div>
+
+    <nav class="touch-controls" aria-label="Touch game controls">
+      <button data-action="left" aria-label="Move left">‹</button>
+      <div class="touch-center"><button data-action="jump" aria-label="Jump">↑</button><button data-action="slide" aria-label="Slide">↓</button></div>
+      <button data-action="right" aria-label="Move right">›</button>
+    </nav>
+    <footer class="footer-note"><span>© SEGA</span><span>THE FASTEST THING ALIVE</span><span>V 1.0</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
